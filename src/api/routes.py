@@ -26,7 +26,7 @@ def login():
     except:
         return jsonify({"message": "The login was unsuccessful"}), 400
 
-@api.route("/validate", methods=["POST"])
+@api.route("/register", methods=["POST"])
 def register():
     username = request.json.get("username")
     password = request.json.get("password")

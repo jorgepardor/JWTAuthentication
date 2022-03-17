@@ -43,12 +43,12 @@ export const Register = () => {
           <button
             onClick={() => {
               fetch(
-                "https://3001-4geeksacademy-reactflask-otygq2y2sit.ws-eu34.gitpod.io/api/register",
+                "https://3001-4geeksacademy-reactflask-otygq2y2sit.ws-eu38.gitpod.io/api/register",
                 {
+                  method: "POST",
                   headers: {
                     "Content-Type": "application/json",
                   },
-                  method: "POST",
                   body: JSON.stringify(user),
                 }
               )

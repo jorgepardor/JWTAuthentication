@@ -32,14 +32,3 @@ export const Dashboard = () => {
     </>
   );
 };
-
-// let history = useHistory();
-
-// useEffect(() => {
-//   if (!validate()) {
-//     history.push("/");
-//   }
-// }, []);
-// const validate = async () => {
-//   return await actions.validate();
-// };
