@@ -1,10 +1,12 @@
 import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/home.css";
+import { useHistory } from "react-router-dom";
 
 export const Register = () => {
   const { store, actions } = useContext(Context);
   const [user, setUser] = useState({});
+  let history = useHistory();
 
   return (
     <div className="container">
@@ -43,7 +45,7 @@ export const Register = () => {
           <button
             onClick={() => {
               fetch(
-                "https://3001-4geeksacademy-reactflask-otygq2y2sit.ws-eu38.gitpod.io/api/register",
+                "https://3001-jorgepardor-jwtauthentic-27b4o6b76ht.ws-eu38.gitpod.io/api/register",
                 {
                   method: "POST",
                   headers: {
@@ -55,7 +57,14 @@ export const Register = () => {
                 .then((res) => {
                   return res.json();
                 })
-                .then((data) => console.log(data));
+                .then((data) => {
+                  if (data.token) {
+                    localStorage.setItem("token", data.token);
+                    history.push("/dashboard");
+                  } else {
+                    alert("error");
+                  }
+                });
             }}
             type="button"
             className="btn btn-primary btn-sm me-1"

@@ -40,7 +40,7 @@ def register():
     except:
         return jsonify({"message": "There was a problem creating an user"}), 400
 
-@api.route("/validate", methods=["POST"])
+@api.route("/validate", methods=["GET"])
 @jwt_required()
 def handle_validate():
     current_user_id = get_jwt_identity()
